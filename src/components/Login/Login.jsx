@@ -9,19 +9,19 @@ function Login(props) {
   const [form, setForm] = useState({
     email: "",
     password: "",
-    age: "",
   });
-
-  const [inValid, setInValid] = useState(false);
-  const navigate = useNavigate();
-  const { email, password } = form;
   const admin = {
     email: "admin@admin",
     password: "2976796152",
   }
+  let letloggedin = Object.keys(admin).every(item => item === admin[item]);
+  const [inValid, setInValid] = useState(false);
+  const navigate = useNavigate();
+  const { email, password } = form;
   useEffect(() => {
     let timeout = setTimeout(() => {
-      console.log("Validate");
+      if (letloggedin) navigate("/admin")
+
       setInValid(email.includes("@") && password.length >= 6);
     }, 1000);
 
@@ -40,13 +40,11 @@ function Login(props) {
       };
     });
 
-    props.onCheckValid(true);
+    // props.onCheckValid(true);
   };
 
   const submitHandler = () => {
-    if (form === admin) {
-      navigate("/admin")
-    }else  props.onLogin(email, password);
+    props.onLogin(email, password);
   };
   return (
     <div className={`${classes.bgImg}`}>
@@ -79,7 +77,8 @@ function Login(props) {
             </div>
             <div className={classes.actions}>
               <Button
-                className="btn btn-danger"
+                type='submit'
+                className="btn btn-outline-danger"
                 disabled={!inValid}              >
                 Login
               </Button>
