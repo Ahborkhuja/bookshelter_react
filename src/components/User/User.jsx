@@ -1,10 +1,14 @@
 import React from 'react'
-import Header from './Header'
-
+import RootLayoutUser from "../Layout/RootLayoutUser";
+import Body from './Body';
+let Bookmarks=[];
 function User() {
+  
+
   return (
     <>
-    <Header />
+    <RootLayoutUser />
+    <Body  />    
     </>
   )
 }

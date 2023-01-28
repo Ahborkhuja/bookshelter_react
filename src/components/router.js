@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login/Login";
-import RootLayoutAdmin from "./Layout/RootLayoutAdmin";
-import RootLayoutUser from "./Layout/RootLayoutUser";
-
+import ProtectedRout from "./utility/ProtectedRout";
+import User from "./User/User";
+import Admin from "./Admin/Admin";
 export const routes = createBrowserRouter([
   {
     path: "/login",
@@ -11,12 +11,14 @@ export const routes = createBrowserRouter([
   },
   {
     path: "/",
-    element: <RootLayoutUser />,
+    element: <User />,
     children:[],
   },
   {
     path: "/admin",
-    element: <RootLayoutAdmin />,
+    element: <ProtectedRout>
+      <Admin />
+    </ProtectedRout>,
     children:[],
   }
 ]);

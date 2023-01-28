@@ -3,11 +3,14 @@ import Header from '../Admin/Header';
 import { Outlet } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function RootLayoutAdmin() {
+function RootLayoutAdmin(p) {
   return (
     <>
-    <Header />
-    </>  )
+      <Header />
+      <main style={{ margin: "40px" }}>
+        <Outlet />
+      </main>
+    </>)
 }
 
 export default RootLayoutAdmin

@@ -1,0 +1,14 @@
+import AdminLogo  from "./adminLogo.svg";
+import book_open from "./book-open.svg";
+import books from "./books.jpg";
+import calendar from "./calendar.svg";
+import cancel from "./cancel.svg";
+import Delete from "./delete.svg";
+import lock from "./lock.svg";
+import Logo from "./Logo.svg";
+import Lupa from "./Lupa.svg";
+import bgImg from "./pexels.jpg";
+import python from "./python.png";
+import user from "./user.svg";
+let a = { AdminLogo, book_open, book_open, books, calendar, cancel, Delete, lock,  Logo, Lupa, bgImg, python, user };
+export default a;

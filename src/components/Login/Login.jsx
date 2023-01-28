@@ -2,10 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { Card, Button, Form } from "react-bootstrap";
 import classes from "./Login.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from "../../assets/Logo.svg"
+import a  from "../../assets/ImgImport";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login(props) {
+  // axios
+  //   .get(
+  //     "https://bookshelter-87e0a-default-rtdb.firebaseio.com/books.json",
+  //     backendData
+  //   )
+  //   .then((res) => {
+  //     localStorage.setItem("auth", res.data.idToken);
+  //     setIsLoggedIn(true);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+
+  //     setError(true);
+  //   });
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -14,13 +30,15 @@ function Login(props) {
     email: "admin@admin",
     password: "2976796152",
   }
-  let letloggedin = Object.keys(admin).every(item => item === admin[item]);
   const [inValid, setInValid] = useState(false);
   const navigate = useNavigate();
   const { email, password } = form;
   useEffect(() => {
     let timeout = setTimeout(() => {
-      if (letloggedin) navigate("/admin")
+      if (letloggedin) {
+        localStorage.setItem("login",true)
+        navigate("/admin")
+      }
 
       setInValid(email.includes("@") && password.length >= 6);
     }, 1000);
@@ -30,6 +48,7 @@ function Login(props) {
       clearTimeout(timeout);
     };
   }, [email, password]);
+  let letloggedin = Object.keys(admin).every(item => item === admin[item]);
 
   const getValueFromInputHandler = (e) => {
     setForm((prevValue) => {
@@ -52,7 +71,7 @@ function Login(props) {
         <Card className={classes.login}>
           {props.isLoggedin && <p>Email or Password is invalid</p>}
           <Form className={`${classes.form}`} onSubmit={submitHandler} autoComplete="off">
-            <img className={`${classes.logo}`} src={Logo} />
+            <img className={`${classes.logo}`} src={a.logo} />
             <div className={`${classes.control}`}>
               <label className='input-group-text' htmlFor="email">E-Mail</label>
               <Form.Control

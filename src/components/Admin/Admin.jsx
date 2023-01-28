@@ -1,9 +1,17 @@
 import React from 'react'
-import Header from './Header'
+import RootLayoutAdmin from '../Layout/RootLayoutAdmin'
+import Body from './Body'
 
 function Admin() {
+  let Modal;
+  const modal =(item)=>{
+    Modal = item;
+  }
   return (
-    <Header />
+    <>
+      <RootLayoutAdmin />
+      <Body />
+    </>    
   )
 }
 

@@ -1,21 +1,46 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './admin.css';
-import logo from "../../assets/adminLogo.svg"
+import a from "../../assets/ImgImport";
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import MyModal from './MyModal';
 
-function Header() {
+function Header(p) {
   const [modalShow, setModalShow] = React.useState(false);
-
+  const navigate = useNavigate();
   return (
     <>
+      <nav
+        className="navbar d-flex navbar-expand ps-4 pe-4"
+        style={{ backgroundColor: "#8000e2" }}
+      >
+        <Link className="navbar-brand me-5" to={"/"}><img src={a.AdminLogo} alt="" /></Link>
+        <div className="w-100 d-flex justify-content-between align-content-lg-center">
+          <form className="d-flex" id="form">
+            <input
+              className="search form-control rounded-pill"
+              style={{ width: "70vw" }}
+              type="search"
+              placeholder="Search books"
+              aria-label="Search"
+            />
+          </form>
+          <Button variant="outline-success" onClick={() => setModalShow(true)}>Add</Button>
+        </div>
+      </nav>
+
+
+
+
+      <div style={{ height: "100vh" }}>
         <div className="user">
           <div className="admin">
-            <img src={logo} alt="logo" />
-            <h2 className="mt-4">Admin</h2>
+            <h2 className="mt-4 text-dark">Admin</h2>
             <div className="logo">
               <i className="ri-logout-box-r-line"></i>
-              <p>Logout</p>
+              <Button className='logout' variant='outline-danger' onClick={() => { navigate("/login") }
+              }>Logout</Button>
             </div>
           </div>
           <div className="Overview">
@@ -23,12 +48,11 @@ function Header() {
               <h2>Overview</h2>
               <div style={{ display: "flex", gap: "10px" }}>
                 {/* <button className="Add"><img src="./img/Vector.png" alt="" />...</button> */}
-                <button className="Add_add" variant="primary" onClick={() => setModalShow(true)}>Add</button>
               </div>
             </div>
             <div id="books_content">
               <div className="cost">
-                <img src="./img/garri.webp" alt="" className="garri" />
+                <img src={a.python} alt="" className="" />
                 <div>
                   <p>
                     The Big Book of Dashboards: Visualizing Your Data Using
@@ -60,7 +84,8 @@ function Header() {
           <button className="btn_two">2</button>
           <button className="btn_three">3</button>
           <button className="btn_five"><i className="ri-arrow-right-line"></i></button>
-        </div>
+        </div>.
+      </div>
     </>
   )
 }

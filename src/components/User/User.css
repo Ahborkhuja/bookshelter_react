@@ -1,0 +1,87 @@
+
+.search::before {
+  display: inline-block;
+  content: "dasdas";
+  width: 50px;
+  height: 50px;
+  background-image: url("../../assets/Lupa.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.butn::before {
+  display: inline-block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assets/calendar.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.opButn {
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/book-open.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.warnBtn{
+  background-color: #ffdd94!important;
+}
+.warnBtn:hover{
+  background-color: #ffc107!important;
+}
+.butn{
+  background: rgba(0, 0, 0, 0.205)!important;
+  color: rgb(36, 36, 36);
+}
+.butn:hover{
+  background: rgba(0, 0, 0, 0.678)!important;
+
+}
+.remButn {
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/delete.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-title > h5 {
+  font-family: "Rubik";
+  font-style: normal;
+  color: #000000;
+}
+
+.card-title > h6 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  color: #757881;
+}
+.bgIm {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/books.jpg");
+  background-size: 500px;
+}
+.Icol > [placeholders] {
+  color: white !important;
+}
+.butn_bg {
+  background-color: #aacfff;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  display: flex;
+  justify-content: flex-end;
+  transition: right 1s ease-in-out;
+}
+
+.active {
+  right: 0%;
+}

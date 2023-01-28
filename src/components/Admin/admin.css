@@ -7,23 +7,22 @@
 .user {
   display: flex;
   gap: 50px;
-}
-.form{
-
+  height: 95vh;
 }
 .container {
   width: 1240px;
   padding: 0;
   margin: 0 auto;
 }
-
+.logout:hover{
+  background-color: transparent!important;
+}
 .admin {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 241.83px;
-  height: 100vh;
   color: rgb(223, 0, 0);
   background: linear-gradient(175.93deg, #5f00d8 -10.23%, #b200f1 117.03%);
 }
@@ -88,6 +87,7 @@
 }
 
 .button {
+  display: flex;
   margin-left: 700px;
   margin-top: 0px;
 }
@@ -126,6 +126,7 @@
 }
 
 .moon {
+  height: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
