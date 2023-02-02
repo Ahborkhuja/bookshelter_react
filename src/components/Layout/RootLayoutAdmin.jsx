@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react'
 import Header from '../Admin/Header';
 import { Outlet } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function RootLayoutAdmin(p) {
   return (
     <>
-      <Header />
-      <main style={{ margin: "40px" }}>
+      <Header setModalShow={p.setmodalShow} />
+      <main>
         <Outlet />
       </main>
     </>)

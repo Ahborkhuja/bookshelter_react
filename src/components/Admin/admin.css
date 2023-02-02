@@ -7,7 +7,7 @@
 .user {
   display: flex;
   gap: 50px;
-  height: 95vh;
+  /* height: max-content; */
 }
 .container {
   width: 1240px;
@@ -62,6 +62,7 @@
 }
 
 .cost {
+  position: relative;
   display: flex;
   gap: 28px;
   width: 1000px;
@@ -87,9 +88,11 @@
 }
 
 .button {
+  position: absolute;
   display: flex;
-  margin-left: 700px;
-  margin-top: 0px;
+  gap: 15px;
+  top: 5px;
+  right: 5px;
 }
 
 .btn {
@@ -145,7 +148,11 @@
   align-items: center;
   transition: top 1s ease-in-out;
 }
-
+.books_content {
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+}
 .active {
   top: 0;
 }

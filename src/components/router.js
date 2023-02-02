@@ -3,6 +3,7 @@ import Login from "./Login/Login";
 import ProtectedRout from "./utility/ProtectedRout";
 import User from "./User/User";
 import Admin from "./Admin/Admin";
+import MoreInfo from "./User/MoreInfo";
 export const routes = createBrowserRouter([
   {
     path: "/login",
@@ -12,7 +13,12 @@ export const routes = createBrowserRouter([
   {
     path: "/",
     element: <User />,
-    children:[],
+    children:[
+      {
+        path: "/moreInfo",
+        element: <MoreInfo />
+      }
+    ],
   },
   {
     path: "/admin",

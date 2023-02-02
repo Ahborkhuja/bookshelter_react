@@ -1,16 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import RootLayoutAdmin from '../Layout/RootLayoutAdmin'
 import Body from './Body'
 
 function Admin() {
-  let Modal;
-  const modal =(item)=>{
-    Modal = item;
-  }
+  const [modalShow,setModalShow]=useState(false)
   return (
     <>
-      <RootLayoutAdmin />
-      <Body />
+      <RootLayoutAdmin setModalShow={setModalShow} />
+      <Body modalShow={modalShow} />
     </>    
   )
 }

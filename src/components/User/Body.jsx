@@ -4,10 +4,8 @@ import "./User.css";
 import { Button, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 import a from "../../assets/ImgImport";
-
-
-
-
+import { useNavigate } from 'react-router-dom';
+import MoreInfo from './MoreInfo';
 
 function Body(p) {
   let loading = null;
@@ -16,13 +14,13 @@ function Body(p) {
   const [book, setBook] = useState([]);
   const [check, setcheck] = useState({});
   const [isLoading, setisLoading] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     axios.get("https://bookshelter-87e0a-default-rtdb.firebaseio.com/bookmarks.json").then(res => {
       let arr=[]
       if (res.data) {
         arr = Object.keys(res.data).map((item) => {
-          setlimitM(true)
-
+          setlimitM(true);
           return { ...res.data[item], id: item };
         });
         setBookmark(arr);
@@ -37,6 +35,10 @@ function Body(p) {
     });
   }, [limitM]);
 
+  const moreInfo=(item)=>{
+    navigate("/moreInfo");
+    MoreInfo(item);
+  }
 
   const openBookMark = (item) => {
     p.openBook(item)
@@ -63,9 +65,6 @@ function Body(p) {
           setlimitM(false)
 
         })
-    }
-    else {
-      // setcheck(true);
     }
   }
   console.log(check);
@@ -138,8 +137,7 @@ function Body(p) {
                       type="button"
                       className="w-50 btn btn-light"
                       style={{ color: "#0d75ff" }}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
+                      onClick={()=>{moreInfo(item)}}
                     >
                       More Info
                     </Button>

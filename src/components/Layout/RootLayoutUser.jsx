@@ -6,10 +6,10 @@ import { Outlet } from 'react-router-dom';
 function RootLayoutUser() {
   return (
     <>
-    <Header />
-    <main style={{margin:"40px"}}>
-    <Outlet />
-    </main>    
+      <Header />
+      <main style={{ margin: "40px" }}>
+        <Outlet />
+      </main>
     </>
   )
 }
